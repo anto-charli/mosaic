@@ -54,6 +54,8 @@ const getExtensionImports = (pathname, filename) => {
         (pluginFile) => `require('.${path.sep}${
             path.relative(path.dirname(filename), pluginFile)
         }')`
+        .split(path.sep)
+      	.join(path.posix.sep)
     );
 };
 

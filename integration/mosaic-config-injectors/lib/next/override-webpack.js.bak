@@ -18,20 +18,13 @@ const overrideWebpack = (config, { webpack }) => {
             if (typeof external !== 'function') {
                 return external;
             }
-            // console.log("inside config");
-            return ({ context, request, getResolve }, cb) => {
-                // return (context, request, cb) => {
-                // console.log("context", context);
-                return includePaths
-                    .filter(Boolean)
-                    .find((include) =>
-                        request.startsWith(".")
-                            ? new RegExp(include).test(path.resolve(context, request))
-                            : new RegExp(include).test(request)
-                    )
+
+            return (ctx, req, cb) => {
+                return includePaths.filter(Boolean).find((include) => (req.startsWith('.')
+                    ? new RegExp(include).test(path.resolve(ctx, req))
+                    : new RegExp(include).test(req)))
                     ? cb()
-                    : external({ context, request, getResolve }, cb);
-                // external(context, request, cb);
+                    : external(ctx, req, cb);
             };
         });
     }

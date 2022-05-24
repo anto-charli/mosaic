@@ -4,28 +4,38 @@
         "jsx": "react",
         "paths": {
             "Style/*": [
-                "src/style/*"
+                "src/style/*",
+                "src\\style/*"
             ],
             "Component/*": [
-                "src/component/*"
+                "src/component/*",
+                "src\\component/*"
             ],
             "Route/*": [
-                "src/route/*"
+                "src/route/*",
+                "src\\route/*"
             ],
             "Store/*": [
-                "src/store/*"
+                "src/store/*",
+                "src\\store/*"
             ],
             "Util/*": [
-                "src/util/*"
+                "src/util/*",
+                "src\\util/*"
             ],
             "Query/*": [
-                "src/query/*"
+                "src/query/*",
+                "src\\query/*"
             ],
             "Type/*": [
-                "src/type/*"
+                "src/type/*",
+                "src\\type/*"
             ],
             "/*": [
                 "src/*"
+            ],
+            "Pages/*": [
+                "src\\pages/*"
             ]
         }
     }

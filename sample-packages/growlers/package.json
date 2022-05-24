@@ -1,0 +1,11 @@
+{
+    "name": "growlers",
+    "version": "0.0.2",
+    "private": "true",
+    "mosaic": {
+        "type": "extension",
+        "nextPages": {
+            "growler": "server"
+        }
+    }
+}
