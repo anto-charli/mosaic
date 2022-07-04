@@ -1,6 +1,6 @@
-const path = require("path");
-const babel = require("@babel/core");
-const logger = require("@tilework/mosaic-dev-utils/logger");
+const path = require('path');
+const babel = require('@babel/core');
+const logger = require('@tilework/mosaic-dev-utils/logger');
 
 function transformImports(code, transformer) {
     const parts = [];
@@ -9,7 +9,10 @@ function transformImports(code, transformer) {
     babel.transformSync(code, {
         babelrc: false,
         configFile: false,
-        presets: ["@babel/preset-react"],
+        presets: [
+            '@babel/preset-react',
+            ['@babel/preset-typescript', { isTSX: true, allExtensions: true }]
+        ],
         plugins: [
             {
                 visitor: {
@@ -24,8 +27,8 @@ function transformImports(code, transformer) {
                     CallExpression({ node }) {
                         // Import non-import calls
                         if (
-                            node.callee.type !== "Import" &&
-              node.callee.name !== "require"
+                            node.callee.type !== 'Import' &&
+                            node.callee.name !== 'require'
                         ) {
                             return;
                         }
@@ -34,14 +37,14 @@ function transformImports(code, transformer) {
                         const importable = node.arguments[0];
 
                         // Warn about critical deps
-                        if (importable.type !== "StringLiteral") {
+                        if (importable.type !== 'StringLiteral') {
                             const warningCode = logger.style.code(
                                 code.substring(node.start, node.end)
                             );
 
                             logger.warn(
                                 `Critical dependency found: "${warningCode}".`,
-                                "It is not recommended to import modules in such a manner, it may not work as expected."
+                                'It is not recommended to import modules in such a manner, it may not work as expected.'
                             );
 
                             return;
@@ -85,7 +88,7 @@ function transformImports(code, transformer) {
     return [
         ...transformedPieces.result,
         code.substr(transformedPieces.lastIndex)
-    ].join("");
+    ].join('');
 }
 
 module.exports = transformImports;
