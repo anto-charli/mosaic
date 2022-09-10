@@ -30,9 +30,10 @@ function postProcessInstance(instance, constructorArguments) {
     );
 
     // Handle construct logic
-    if (instance.__construct) {
+    if (instance.__construct && instance.__isConstructorCalled === undefined) {
         // Call the "magic" __construct member function
         instance.__construct(...constructorArguments);
+        instance.__isConstructorCalled = true;
     }
 
     return instance;

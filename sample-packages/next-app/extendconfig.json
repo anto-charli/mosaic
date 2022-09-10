@@ -41,7 +41,8 @@
                 "src/*"
             ],
             "Pages/*": [
-                "src\\pages/*"
+                "src\\pages/*",
+                "src/pages/*"
             ]
         }
     }
