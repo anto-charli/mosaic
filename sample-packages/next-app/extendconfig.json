@@ -7,9 +7,15 @@
                 "src/style/*",
                 "src\\style/*"
             ],
+            "@Component/*": [
+                "src/components/*",
+                "src\\components/*"
+            ],
             "Component/*": [
-                "src/component/*",
-                "src\\component/*"
+                "src/components/*",
+                "src\\components/*",
+                "src\\component/*",
+                "src\\components\\*"
             ],
             "Route/*": [
                 "src/route/*",

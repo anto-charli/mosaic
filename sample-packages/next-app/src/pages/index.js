@@ -1,30 +1,14 @@
-// import getData from "../zutil/get-data"
-// import page from "@tilework/mosaic-sample-page";
+import { Header } from '@Component/Header'
+import { ItemList } from 'Component/ItemList'
 
-console.log({ works: process.env.IS_WORKING })
-
-/* @namespace Pages/sample/Page*/
-function SamplePage() {
-  /* @namespace Pages/sample/description*/
-  const renderDescription = () => {
-    return "This is the description"
-  }
-
-  /* @namespace Pages/sample/rating*/
-  const renderRating = () => {
-    return "This is the rating"
-  }
-
+/* @namespace Pages/home/Page*/
+function HomePage() {
   return (
     <div>
-      <img src="/picture.jpeg" alt="picture" />
-      <h1>Homepage</h1>
-      <p>Welcome to the webpage!</p>
-      {/* <p>Data: {getData()}</p> */}
-      <div>{renderDescription()}</div>
-      <div>{renderRating()}</div>
+      <Header />
+      <ItemList />
     </div>
   )
 }
 
-export default SamplePage
+export default HomePage

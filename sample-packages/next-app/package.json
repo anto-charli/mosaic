@@ -19,10 +19,16 @@
     }
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.9",
+    "@chakra-ui/react": "1.8.8",
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@tilework/mosaic-nextjs-scripts": "0.1.22",
     "@tilework/mosaic-sample-page": "0.0.1",
+    "framer-motion": "^7.2.1",
     "growlers": "file:../growlers/",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-toastify": "^9.0.8"
   }
 }
